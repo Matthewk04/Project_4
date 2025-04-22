@@ -2,6 +2,10 @@ package player;
 
 import maze.Cell;
 import maze.Row;
+import maze.Grid;
+import maze.CellComponents;
+
+import java.util.List;
 
 public class Player {
 	
@@ -27,6 +31,24 @@ public class Player {
 
 	public void setCurrentCell(Cell currentCell) {
 		this.currentCell = currentCell;
+	}
+	
+	public boolean moveUp() {
+		Grid grid = currentRow.getParentGrid();
+		List<Row> rows = grid.getRows();
+		int currentRowIndex = row.indexOf(currentRow);
+		int currentCellIndex = currentRow.getCells().indexOf(currentCell);
+		
+		if (currentRowIndex > 0) {
+			CellComponents upComponent = currentCell.getUp();
+			Cell aboveCell = rows.get(currentRowIndex-1).getCells().get(currentCellIndex);
+			if (upComponent == CellComponents.APERTURE || upComponent == CellComponents.EXIT) {
+				this.currentRow = rows.get(currentRowIndex-1);
+				this.currentCell = aboveCell;
+				return true;
+			}
+		}
+		return false;
 	}
 	
 

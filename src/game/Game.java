@@ -15,10 +15,10 @@ import maze.Grid;
 
 public class Game {
     
-    private Grid grid;
+    private int grid;
     
-    public Game(Grid grid) {
-        this.grid = grid;
+    public Game(int i) {
+        this.grid = i;
     }
 
     public Grid getGrid() {

@@ -1,5 +1,15 @@
 package maze;
 
+/**
+ * represents a single cell in the grid
+ * 
+ * fields:
+ * -left  :  what is on the left
+ * -right :  what is on the right
+ * -up    : what is above
+ * -down  : what is below
+ */
+
 public class Cell {
     
     private CellComponents left;

@@ -1,5 +1,15 @@
 package maze;
 
+/**
+ * Enum that represents the possible components of a cell
+ *
+ * Values:
+ * - EXIT : where you exit
+ * - APERTURE: an open path
+ * - WALL: its a wall
+ */
+
+
 public enum CellComponents {
 
 	EXIT,

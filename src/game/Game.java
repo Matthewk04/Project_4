@@ -4,6 +4,15 @@ import player.Player;
 import player.Movement;
 import maze.Grid;
 
+/**
+ * represents the logic of the game
+ * 
+ * fields:
+ * -grid: the maze that is used in teh game
+ * 
+ * provides methosds to get and set the grid and moove the player based on input
+ */
+
 public class Game {
     
     private Grid grid;

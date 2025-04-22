@@ -4,6 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Represents the maze grid that is composed of list of rows.
+ * 
+ * Fields:
+ * - rows: the list of row objects that make up a grid
+ * 
+ * provides methods to get and set rows
+ */
+
 public class Grid {
 
     private List<Row> rows;

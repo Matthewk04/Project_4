@@ -7,6 +7,16 @@ import maze.CellComponents;
 
 import java.util.List;
 
+/**
+ * Represents a player within a grid.
+ * Allows the player to move up, down, left, and right.
+ * But the player can move only if the path contains an APERTURE or EXIT.
+ *
+ * Fields:
+ * - currentRow: The current row the player is located in.
+ * - currentCell: The current cell the player occupies in the row.
+ */
+
 public class Player {
 
     private Row currentRow;

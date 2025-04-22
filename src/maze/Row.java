@@ -3,6 +3,15 @@ package maze;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Represents a single row in the grid
+ * 
+ * Fields:
+ * -cells: list of cell objects that belong to the row
+ * 
+ * has methods to get and set the cells
+ */
+
 public class Row {
 
     private ArrayList<Cell> cells;

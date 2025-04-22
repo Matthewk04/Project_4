@@ -8,53 +8,53 @@ import maze.CellComponents;
 import java.util.List;
 
 public class Player {
-	
-	private Row currentRow;
-	private Cell currentCell;
-	
-	public Player(Row currentRow, Cell currentCell) {
-		this.currentRow = currentRow;
-		this.currentCell = currentCell;
-	}
 
-	public Object getCurrentRow() {
-		return currentRow;
-	}
+    private Row currentRow;
+    private Cell currentCell;
 
-	public Object getCurrentCell() {
-		return currentCell;
-	}
+    public Player(Row currentRow, Cell currentCell) {
+        this.currentRow = currentRow;
+        this.currentCell = currentCell;
+    }
 
-	public void setCurrentRow(Row currentRow) {
-		this.currentRow = currentRow;
-	}
+    public Row getCurrentRow() {
+        return currentRow;
+    }
 
-	public void setCurrentCell(Cell currentCell) {
-		this.currentCell = currentCell;
-	}
-	
-	public boolean moveUp() {
-		Grid grid = currentRow.getParentGrid();
-		List<Row> rows = grid.getRows();
-		int currentRowIndex = row.indexOf(currentRow);
-		int currentCellIndex = currentRow.getCells().indexOf(currentCell);
-		
-		if (currentRowIndex > 0) {
-			CellComponents upComponent = currentCell.getUp();
-			Cell aboveCell = rows.get(currentRowIndex-1).getCells().get(currentCellIndex);
-			if (upComponent == CellComponents.APERTURE || upComponent == CellComponents.EXIT) {
-				this.currentRow = rows.get(currentRowIndex-1);
-				this.currentCell = aboveCell;
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	public boolean moveDown() {
+    public Cell getCurrentCell() {
+        return currentCell;
+    }
+
+    public void setCurrentRow(Row currentRow) {
+        this.currentRow = currentRow;
+    }
+
+    public void setCurrentCell(Cell currentCell) {
+        this.currentCell = currentCell;
+    }
+
+    public boolean moveUp() {
         Grid grid = currentRow.getParentGrid();
         List<Row> rows = grid.getRows();
-        int currentRowIndex = rows.indexOf(currentRow);
+        int currentRowIndex = rows.indexOf(currentRow);  // Fixed here
+        int currentCellIndex = currentRow.getCells().indexOf(currentCell);
+
+        if (currentRowIndex > 0) {
+            CellComponents upComponent = currentCell.getUp();
+            Cell aboveCell = rows.get(currentRowIndex - 1).getCells().get(currentCellIndex);
+            if (upComponent == CellComponents.APERTURE || upComponent == CellComponents.EXIT) {
+                this.currentRow = rows.get(currentRowIndex - 1);
+                this.currentCell = aboveCell;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean moveDown() {
+        Grid grid = currentRow.getParentGrid();
+        List<Row> rows = grid.getRows();
+        int currentRowIndex = rows.indexOf(currentRow);  // Fixed here
         int currentCellIndex = currentRow.getCells().indexOf(currentCell);
 
         if (currentRowIndex < rows.size() - 1) {
@@ -68,8 +68,8 @@ public class Player {
         }
         return false;
     }
-	
-	public boolean moveLeft() {
+
+    public boolean moveLeft() {
         List<Cell> cells = currentRow.getCells();
         int currentCellIndex = cells.indexOf(currentCell);
 
@@ -83,8 +83,8 @@ public class Player {
         }
         return false;
     }
-	
-	public boolean moveRight() {
+
+    public boolean moveRight() {
         List<Cell> cells = currentRow.getCells();
         int currentCellIndex = cells.indexOf(currentCell);
 
@@ -98,10 +98,10 @@ public class Player {
         }
         return false;
     }
-	
-	@Override
-	public String toString() {
-		return "Player [currentCell="+currentCell+", currentRow="+currentRow+"]";
-	}
+
+    @Override
+    public String toString() {
+        return "Player [currentCell=" + currentCell + ", currentRow=" + currentRow + "]";
+    }
 
 }

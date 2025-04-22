@@ -4,18 +4,25 @@ import maze.Grid;
 import player.Player;
 
 public class Game {
+	
+	private Grid grid;
 
 	public Game(Grid grid) {
-		// TODO Auto-generated constructor stub
+		this.grid = grid;
 	}
 
 	public Game(int i) {
-		// TODO Auto-generated constructor stub
+		if (size < 3 || size > 7) {
+			this.grid = null;
+		}else {
+			this.grid=createRandomGrid(size);
+		}
 	}
 
 	public Grid createRandomGrid(int i) {
-		// TODO Auto-generated method stub
-		return null;
+		if (size<3||size>7) return null;
+		
+		Random rand = new Random
 	}
 
 	public Object getGrid() {

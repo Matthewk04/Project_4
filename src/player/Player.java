@@ -84,5 +84,20 @@ public class Player {
         return false;
     }
 	
+	public boolean moveRight() {
+        List<Cell> cells = currentRow.getCells();
+        int currentCellIndex = cells.indexOf(currentCell);
+
+        if (currentCellIndex < cells.size() - 1) {
+            CellComponents rightComponent = currentCell.getRight();
+            Cell rightCell = cells.get(currentCellIndex + 1);
+            if (rightComponent == CellComponents.APERTURE || rightComponent == CellComponents.EXIT) {
+                this.currentCell = rightCell;
+                return true;
+            }
+        }
+        return false;
+    }
+	
 
 }

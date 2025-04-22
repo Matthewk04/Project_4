@@ -69,5 +69,20 @@ public class Player {
         return false;
     }
 	
+	public boolean moveLeft() {
+        List<Cell> cells = currentRow.getCells();
+        int currentCellIndex = cells.indexOf(currentCell);
+
+        if (currentCellIndex > 0) {
+            CellComponents leftComponent = currentCell.getLeft();
+            Cell leftCell = cells.get(currentCellIndex - 1);
+            if (leftComponent == CellComponents.APERTURE || leftComponent == CellComponents.EXIT) {
+                this.currentCell = leftCell;
+                return true;
+            }
+        }
+        return false;
+    }
+	
 
 }

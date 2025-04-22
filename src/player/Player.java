@@ -12,7 +12,6 @@ public class Player {
     private Row currentRow;
     private Cell currentCell;
 
-    // Constructor
     public Player(Row currentRow, Cell currentCell) {
         this.currentRow = currentRow;
         this.currentCell = currentCell;
@@ -35,9 +34,9 @@ public class Player {
     }
 
     public boolean moveUp() {
-        Grid grid = currentRow.getParentGrid(); 
+        Grid grid = currentRow.getParentGrid();
         List<Row> rows = grid.getRows();
-        int currentRowIndex = rows.indexOf(currentRow);
+        int currentRowIndex = rows.indexOf(currentRow);  
         int currentCellIndex = currentRow.getCells().indexOf(currentCell);
 
         if (currentRowIndex > 0) {
@@ -53,9 +52,9 @@ public class Player {
     }
 
     public boolean moveDown() {
-        Grid grid = currentRow.getParentGrid(); 
+        Grid grid = currentRow.getParentGrid();
         List<Row> rows = grid.getRows();
-        int currentRowIndex = rows.indexOf(currentRow);
+        int currentRowIndex = rows.indexOf(currentRow);  
         int currentCellIndex = currentRow.getCells().indexOf(currentCell);
 
         if (currentRowIndex < rows.size() - 1) {
@@ -104,4 +103,5 @@ public class Player {
     public String toString() {
         return "Player [currentCell=" + currentCell + ", currentRow=" + currentRow + "]";
     }
+
 }

@@ -1,9 +1,7 @@
 package maze;
 
-import java.util.Objects;
-
 public class Cell {
-
+    
     private CellComponents left;
     private CellComponents right;
     private CellComponents up;
@@ -21,9 +19,7 @@ public class Cell {
     }
 
     public void setLeft(CellComponents left) {
-        if (left != null) {
-            this.left = left;
-        }
+        this.left = left;
     }
 
     public CellComponents getRight() {
@@ -31,9 +27,7 @@ public class Cell {
     }
 
     public void setRight(CellComponents right) {
-        if (right != null) {
-            this.right = right;
-        }
+        this.right = right;
     }
 
     public CellComponents getUp() {
@@ -41,9 +35,7 @@ public class Cell {
     }
 
     public void setUp(CellComponents up) {
-        if (up != null) {
-            this.up = up;
-        }
+        this.up = up;
     }
 
     public CellComponents getDown() {
@@ -51,29 +43,11 @@ public class Cell {
     }
 
     public void setDown(CellComponents down) {
-        if (down != null) {
-            this.down = down;
-        }
+        this.down = down;
     }
 
     @Override
     public String toString() {
         return "Cell [left=" + left + ", right=" + right + ", up=" + up + ", down=" + down + "]";
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Cell)) return false;
-        Cell other = (Cell) obj;
-        return left == other.left &&
-               right == other.right &&
-               up == other.up &&
-               down == other.down;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(left, right, up, down);
     }
 }

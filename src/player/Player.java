@@ -51,5 +51,23 @@ public class Player {
 		return false;
 	}
 	
+	public boolean moveDown() {
+        Grid grid = currentRow.getParentGrid();
+        List<Row> rows = grid.getRows();
+        int currentRowIndex = rows.indexOf(currentRow);
+        int currentCellIndex = currentRow.getCells().indexOf(currentCell);
+
+        if (currentRowIndex < rows.size() - 1) {
+            CellComponents downComponent = currentCell.getDown();
+            Cell belowCell = rows.get(currentRowIndex + 1).getCells().get(currentCellIndex);
+            if (downComponent == CellComponents.APERTURE || downComponent == CellComponents.EXIT) {
+                this.currentRow = rows.get(currentRowIndex + 1);
+                this.currentCell = belowCell;
+                return true;
+            }
+        }
+        return false;
+    }
+	
 
 }

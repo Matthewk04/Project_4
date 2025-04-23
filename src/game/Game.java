@@ -17,6 +17,10 @@ public class Game {
     
     private Grid grid;
     
+    public Game(Grid grid) {
+    	this.grid = grid;
+    }
+    
     public Game(int i) {
         this.grid = Grid.createRandomGrid(i);
     }
@@ -53,6 +57,8 @@ public class Game {
         
         return result;
     }
+    
+    
 
     @Override
     public String toString() {

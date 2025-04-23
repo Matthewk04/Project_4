@@ -15,6 +15,7 @@ import java.util.Objects;
 public class Row {
 
     private ArrayList<Cell> cells;
+    private Grid parentGrid;
 
     public Row(ArrayList<Cell> cells) {
         this.cells = cells;
@@ -45,4 +46,12 @@ public class Row {
     public String toString() {
         return "Row [cells=" + cells + "]";
     }
+
+	public Grid getParentGrid() {
+		return parentGrid;
+	}
+	
+	public void setParentGrid(Grid parentGrid) {
+		this.parentGrid = parentGrid;
+	}
 }

@@ -46,4 +46,10 @@ public class Grid {
     public int hashCode() {
         return Objects.hash(rows);
     }
+
+	public static Grid createRandomGrid(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

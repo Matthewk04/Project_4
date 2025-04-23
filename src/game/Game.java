@@ -10,15 +10,15 @@ import maze.Grid;
  * fields:
  * -grid: the maze that is used in teh game
  * 
- * provides methosds to get and set the grid and moove the player based on input
+ * provides methods to get and set the grid and moove the player based on input
  */
 
 public class Game {
     
-    private int grid;
+    private Grid grid;
     
     public Game(int i) {
-        this.grid = i;
+        this.grid = Grid.createRandomGrid(i);
     }
 
     public Grid getGrid() {
@@ -58,4 +58,9 @@ public class Game {
     public String toString() {
         return "Game [grid=" + grid + "]";
     }
+
+	public Grid createRandomGrid(int i) {
+		return Grid.createRandomGrid(i);
+	}
+
 }

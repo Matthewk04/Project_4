@@ -29,7 +29,15 @@ public class Row {
         this.cells = cells;
     }
 
-    @Override
+	public Grid getParentGrid() {
+		return parentGrid;
+	}
+	
+	public void setParentGrid(Grid parentGrid) {
+		this.parentGrid = parentGrid;
+	}
+	
+	@Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (!(obj instanceof Row)) return false;
@@ -46,12 +54,5 @@ public class Row {
     public String toString() {
         return "Row [cells=" + cells + "]";
     }
-
-	public Grid getParentGrid() {
-		return parentGrid;
-	}
-	
-	public void setParentGrid(Grid parentGrid) {
-		this.parentGrid = parentGrid;
-	}
+    
 }

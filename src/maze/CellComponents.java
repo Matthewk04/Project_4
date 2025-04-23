@@ -19,9 +19,9 @@ public enum CellComponents {
 	@Override
 	public String toString() {
 		return switch(this) {
-		case WALL -> "W";
-		case APERTURE -> " ";
-		case EXIT -> "E";
+		case WALL -> "WALL";
+		case APERTURE -> "APERTURE";
+		case EXIT -> "EXIT";
 		};
 	}
 

@@ -42,7 +42,7 @@ public class Grid {
 			return null;
 		}
 		List<Row> rows = new ArrayList<>();
-		int exitRow = (int)Math.random() * size;
+		int exitRow = (int)(Math.random() * size);
 		
 		for(int i = 0; i < size; i++) {
 			ArrayList<Cell> cells = new ArrayList<>();
@@ -85,16 +85,6 @@ public class Grid {
 			rows.add(new Row(cells));
 		}
 		
-		for(int i = 0; i < size - 1; i++) {
-			Row currentRow = rows.get(i);
-			Row nextRow = rows.get(i+1);
-			for(int j = 0; j < size; j++) {
-				Cell currentCell = currentRow.getCells().get(j);
-				Cell nextCell = nextRow.getCells().get(j);
-				currentCell.setDown(nextCell.getUp());
-				nextCell.setUp(currentCell.getDown());
-			}
-		}
 		return new Grid(rows);
 	}
 	

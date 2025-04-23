@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         // Create the game with a valid grid size (e.g., 3–7)
-        Game game = new Game(5);
+        Game game = new Game(7);
         Grid grid = game.getGrid();
 
         // Place the player at a known starting cell — bottom-right

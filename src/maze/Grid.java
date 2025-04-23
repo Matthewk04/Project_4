@@ -60,40 +60,40 @@ public class Grid {
 		for(int i = 0; i < size; i++) {
 			ArrayList<Cell> cells = new ArrayList<>();
 			for(int j = 0; j < size; j++) {
-				CellComponents left;
-				if(j == 0 && i == exitRow) {
-					left = CellComponents.EXIT;
-				} else if(j == 0) {
-					left = CellComponents.WALL;
-				} else {
-					left = CellComponents.APERTURE;
-				}
+				CellComponents left = CellComponents.WALL;
+				CellComponents right = CellComponents.WALL;
+				CellComponents up = CellComponents.WALL;
+				CellComponents down = CellComponents.WALL;
 				
-				CellComponents right;
-				if(j == size-1) {
+				//deals with the left and right
+				if(j == 0) {
+					if(i == exitRow) {
+						left = CellComponents.EXIT;
+					} else {
+						left = CellComponents.WALL;
+					}
+					right = CellComponents.APERTURE;
+				} else if(j == size - 1) {
+					left = cells.get(j-1).getRight();
 					right = CellComponents.WALL;
 				} else {
+					left = cells.get(j-1).getRight();
 					right = CellComponents.APERTURE;
 				}
 				
-				CellComponents up;
+				//deals with up and down
 				if(i == 0) {
 					up = CellComponents.WALL;
-				} else {
+					down = CellComponents.APERTURE;
+				} else if(i == size-1) {
 					up = CellComponents.APERTURE;
-				}
-				
-				CellComponents down;
-				if(i == size-1) {
 					down = CellComponents.WALL;
 				} else {
+					up = CellComponents.APERTURE;
 					down = CellComponents.APERTURE;
 				}
-				
-				if(j > 0) {
-					left = cells.get(j-1).getRight();
-				}
 				cells.add(new Cell(left, right, up, down));
+				
 			}
 			rows.add(new Row(cells));
 		}

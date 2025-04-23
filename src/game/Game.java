@@ -2,7 +2,13 @@ package game;
 
 import player.Player;
 import player.Movement;
+
+import java.util.List;
+
+import maze.Cell;
+import maze.CellComponents;
 import maze.Grid;
+import maze.Row;
 
 /**
  * represents the logic of the game
@@ -14,6 +20,10 @@ import maze.Grid;
  */
 
 public class Game {
+	
+	public static final String ANSI_GREEN = "\u001B[32m";
+	public static final String ANSI_BLUE = "\u001B[34m";
+	public static final String ANSI_RESET = "\u001B[0m";
     
     private Grid grid;
     
@@ -67,6 +77,29 @@ public class Game {
 
 	public Grid createRandomGrid(int i) {
 		return Grid.createRandomGrid(i);
+	}
+	
+	public void printGrid(Player player) {
+		List<Row> rows = grid.getRows();
+		for(Row row : rows) {
+			StringBuilder sb = new StringBuilder();
+			List<Cell> cells = row.getCells();
+			for(int j = 0; j < cells.size(); j++) {
+				Cell cell = cells.get(j);
+				
+				if(player.getCurrentRow() == row && player.getCurrentCell() == cell) {
+					sb.append(ANSI_BLUE + "A" + ANSI_RESET);
+				} else if(j == 0 && cell.getLeft() == CellComponents.EXIT) {
+					sb.append(ANSI_GREEN + "E" + ANSI_RESET);
+				} else {
+					sb.append("S");
+				}
+				if(j < cells.size()-1) {
+					sb.append(" ");
+				}
+			}
+			System.out.println(sb);
+		}
 	}
 
 }

@@ -27,9 +27,7 @@ public class Main {
 
         while (running) {
             // Show current location
-            int rowIndex = grid.getRows().indexOf(player.getCurrentRow());
-            int colIndex = player.getCurrentRow().getCells().indexOf(player.getCurrentCell());
-            System.out.println("\nYou are at row " + rowIndex + ", column " + colIndex);
+            game.printGrid(player);
             System.out.print("Move: ");
             String input = scanner.nextLine().toUpperCase();
 

@@ -49,10 +49,13 @@ public class Player {
         int currentRowIndex = rows.indexOf(currentRow);  
         int currentCellIndex = currentRow.getCells().indexOf(currentCell);
 
+        CellComponents upComponent = currentCell.getUp();
+        if(upComponent == CellComponents.EXIT) {
+        	return true;
+        }
         if (currentRowIndex > 0) {
-            CellComponents upComponent = currentCell.getUp();
             Cell aboveCell = rows.get(currentRowIndex - 1).getCells().get(currentCellIndex);
-            if (upComponent == CellComponents.APERTURE || upComponent == CellComponents.EXIT) {
+            if (upComponent == CellComponents.APERTURE) {
                 this.currentRow = rows.get(currentRowIndex - 1);
                 this.currentCell = aboveCell;
                 return true;
@@ -67,10 +70,13 @@ public class Player {
         int currentRowIndex = rows.indexOf(currentRow);  
         int currentCellIndex = currentRow.getCells().indexOf(currentCell);
 
+        CellComponents downComponent = currentCell.getDown();
+        if(downComponent == CellComponents.EXIT) {
+        	return true;
+        }
         if (currentRowIndex < rows.size() - 1) {
-            CellComponents downComponent = currentCell.getDown();
             Cell belowCell = rows.get(currentRowIndex + 1).getCells().get(currentCellIndex);
-            if (downComponent == CellComponents.APERTURE || downComponent == CellComponents.EXIT) {
+            if (downComponent == CellComponents.APERTURE) {
                 this.currentRow = rows.get(currentRowIndex + 1);
                 this.currentCell = belowCell;
                 return true;
@@ -83,10 +89,13 @@ public class Player {
         List<Cell> cells = currentRow.getCells();
         int currentCellIndex = cells.indexOf(currentCell);
 
+        CellComponents leftComponent = currentCell.getLeft();
+        if(leftComponent == CellComponents.EXIT) {
+        	return true;
+        }
         if (currentCellIndex > 0) {
-            CellComponents leftComponent = currentCell.getLeft();
             Cell leftCell = cells.get(currentCellIndex - 1);
-            if (leftComponent == CellComponents.APERTURE || leftComponent == CellComponents.EXIT) {
+            if (leftComponent == CellComponents.APERTURE) {
                 this.currentCell = leftCell;
                 return true;
             }
@@ -98,10 +107,13 @@ public class Player {
         List<Cell> cells = currentRow.getCells();
         int currentCellIndex = cells.indexOf(currentCell);
 
+        CellComponents rightComponent = currentCell.getRight();
+        if(rightComponent == CellComponents.EXIT) {
+        	return true;
+        }
         if (currentCellIndex < cells.size() - 1) {
-            CellComponents rightComponent = currentCell.getRight();
             Cell rightCell = cells.get(currentCellIndex + 1);
-            if (rightComponent == CellComponents.APERTURE || rightComponent == CellComponents.EXIT) {
+            if (rightComponent == CellComponents.APERTURE) {
                 this.currentCell = rightCell;
                 return true;
             }

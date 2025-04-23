@@ -14,10 +14,11 @@ import maze.Row;
  * represents the logic of the game
  * 
  * fields:
- * -grid: the maze that is used in teh game
+ * -grid: the maze that is used in the game
  * 
- * provides methods to get and set the grid and moove the player based on input
+ * provides methods to get and set the grid and move the player based on input
  */
+
 
 public class Game {
 	
@@ -27,22 +28,38 @@ public class Game {
     
     private Grid grid;
     
+    /**
+     * Constructs a Game with the provided grid
+     * @param grid the maze grid to be used
+     */
     public Game(Grid grid) {
     	this.grid = grid;
     }
     
+    /**
+     * Constructs a game with a randomly generated grid of the provided size
+     * @param i the size of the grid to generate
+     */
     public Game(int i) {
         this.grid = Grid.createRandomGrid(i);
     }
 
+    //grid getter
     public Grid getGrid() {
         return grid;
     }
 
+    //grid setter
     public void setGrid(Grid grid) {
         this.grid = grid;
     }
 
+    /**
+     * moves the player according the the provided movement
+     * @param movement the direction to move
+     * @param player the player to move
+     * @return true if the movement was successful, false not
+     */
     public boolean play(Movement movement, Player player) {
         if (movement == null || player == null) {
             return false; // invalid movement or null player
@@ -79,6 +96,10 @@ public class Game {
 		return Grid.createRandomGrid(i);
 	}
 	
+	/**
+	 * Prints the grid
+	 * @param player the player to be marked on the grid as "A"
+	 */
 	public void printGrid(Player player) {
 		List<Row> rows = grid.getRows();
 		for(Row row : rows) {

@@ -32,7 +32,11 @@ public class Grid {
         this.rows = rows;
     }
 
-
+    /**
+     * Generates a random grid of the provided size
+     * @param size grid dimensions
+     * @return new random grid
+     */
 	public static Grid createRandomGrid(int size) {
 		if (size < 3 || size > 7) {
 			return null;

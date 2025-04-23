@@ -98,7 +98,7 @@ public class Grid {
 			rows.add(new Row(cells));
 		}
 		
-		for(int i = 0; i < size; i++) {
+		for(int i = 0; i < size - 1; i++) {
 			Row currentRow = rows.get(i);
 			Row nextRow = rows.get(i+1);
 			for(int j = 0; j < size; j++) {
